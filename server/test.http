@@ -2,7 +2,31 @@ POST http://localhost:4000/api/posts
 Content-Type: application/json
 
 {
-    "title": "Hello",
-    "content": "Some content",
-    "author": "John"
+    "title": "Main title",
+    "content": "Some content!!!!!",
+    "author": "John Smith"
+}
+
+###
+
+GET http://localhost:4000/api/posts
+
+
+###
+
+GET http://localhost:4000/api/posts/b7c60c99-d594-478b-b306-4515a4e65529
+
+###
+
+DELETE  http://localhost:4000/api/posts/b7c60c99-d594-478b-b306-4515a4e65529
+
+###
+
+PATCH http://localhost:4000/api/posts/ebd2018a-ac2e-4e94-80aa-899c5107a1c8
+Content-Type: application/json
+
+{
+    "title": "Hello!!!",
+    "content": "Some content!!!",
+    "author": "Jo"
 }

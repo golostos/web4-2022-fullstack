@@ -18,7 +18,7 @@ app.use('/api/posts', postsRouter)
 const errorHandler: ErrorRequestHandler = (error, req, res, next) => {
     if (error instanceof ZodError) {
         return res.status(400).send({
-            message: "Wrong user's credentials"
+            message: "Wrong request"
         })
     }
     if (error instanceof PrismaClientKnownRequestError) {
@@ -40,4 +40,4 @@ const errorHandler: ErrorRequestHandler = (error, req, res, next) => {
 
 app.use(errorHandler)
 
-app.listen(4000)
+app.listen(process.env.PORT || 4000)
