@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
-
-type Post = {
-  id: string,
-  title: string,
-  author: string,
-  createdAt: string
-}
+import { Post } from "./@types";
+import NewPost from "./NewPost";
+import PostsList from "./PostsList";
 
 function App() {
-  const [title, setTitle] = useState("Title")
   const [posts, setPosts] = useState<Post[]>([])
   console.log('Render');
   useEffect(() => {
@@ -26,35 +21,15 @@ function App() {
       cancel = true
       console.log('Unmount');
     }
-  }, [title])
+  }, [])
 
   return (
     <main>
       <h1>Posts:</h1>
-      <form>
-        <label htmlFor="title-input">Title</label>
-        <input
-          value={title}
-          onChange={(event) => { setTitle(event.target.value) }}
-          type="text"
-          id="title-input"
-          placeholder="Title" />
-      </form>
-      <ul>
-        {posts.map(post => <li key={post.id}>{post.title}</li>)}
-      </ul>
+      <NewPost posts={posts} setPosts={setPosts} />
+      <PostsList posts={posts} />
     </main>
   )
 }
-
-// function PostInfo(props: { title: string, content: string }) {
-//   return (
-//     <div>
-//       {props.title}
-//       <br />
-//       {props.content}
-//     </div>
-//   )
-// }
 
 export default App;
