@@ -27,7 +27,7 @@ function App() {
     <main>
       <h1>Posts:</h1>
       <NewPost posts={posts} setPosts={setPosts} />
-      <PostsList posts={posts} />
+      <PostsList posts={posts} setPosts={setPosts} />
     </main>
   )
 }
